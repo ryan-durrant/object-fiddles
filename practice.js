@@ -219,17 +219,25 @@ user2.email = 'tyler.mcginnis@devmounta.in';
 //Create an empty object called methodCollection.
 
   //Code Here
-var methodCollection = {};
+var methodCollection = {
+
+};
 /*Now add two methods (functions that are properties on objects) to your methodCollection
 object. One called 'alertHello' which alerts 'hello' and another method called logHello
  which logs 'hello' to the console. */
 
   //Code Here
-
+methodCollection.alertHello = function(){
+  alert('hello');
+};
+methodCollection.logHello = function(){
+  console.log('hello');
+};
 //Now call your alertHello and logHello methods.
 
   //Code Here
-
+//methodCollection.alertHello();
+methodCollection.logHello();
 
 
 //NEXT PROBLEM
@@ -240,7 +248,14 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 // parameters and returns a new object with all of the information that you passed in.
 
   //Code Here
-
+function makePerson(name, birthday, ssn){
+  var obj = {
+    "name": name,
+    "birthday": birthday,
+    "ssn": ssn
+  }
+  return obj;
+}
 
 
 //NEXT PROBLEM
@@ -250,7 +265,14 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 // Create a function called makeCard which takes in cardNumber, expirationDate, and securityCode to make a Credit Card object and returns that object so that whenever you invoke makeCard, you get a brand new credit card.
 
   //Code Here
-
+function makeCard(cardNumber, expirationDate, securityCode){
+  var CreditCard = {
+    "cardNumber": cardNumber,
+    "expirationDate": expirationDate,
+    "securityCode": securityCode
+  }
+  return CreditCard;
+}
 
 
 //NEXT PROBLEM
@@ -263,3 +285,31 @@ object. One called 'alertHello' which alerts 'hello' and another method called l
 */
 
   //Code Here
+function bindCard(person, creditcard){
+    for(var key in creditcard){
+        person[key] = creditcard[key];
+    }
+
+  return person;
+}
+
+//person[key] = creditcard[key]; is saying, hey person object, do you have the cardNumber property? If so, here is its new value, if not, add the property and value to your object.
+
+// var empty = {
+//
+// };
+//
+// empty.name = "Ryan";
+//
+// var key = "Age";
+//
+// empty[key] = 25;
+//
+// console.log(empty);
+// empty["Age"] = 26; This overrides the Age value because there is a property called Age. in the empty object.
+//
+// var older = "Age";
+//
+// empty[older] = 35; This overrides Age again.
+//
+// empty["Email"] = "foo@foo.com"; This looks for the property "Email", if it doesn't find it, it adds it.
